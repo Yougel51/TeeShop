@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Fond léger */
+  color: #333; /* Couleur de texte principale */
+}
+
+header {
+  background-color: #333; /* Fond sombre pour l'en-tête */
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none; /* Enlève le soulignement des liens */
+}
+
+nav a:hover {
+  text-decoration: underline; /* Souligne au survol */
+}
+
+main {
+  padding: 20px;
+  max-width: 800px; /* Largeur maximale du contenu */
+  margin: 20px auto; /* Centre le contenu et ajoute de la marge */
+  background-color: white;
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Petite ombre */
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* Les éléments du formulaire s'empilent */
+  gap: 10px; /* Espace entre les éléments */
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  border: 1px solid #ddd; /* Bordure légère */
+  border-radius: 4px; /* Coins arrondis */
+}
+
+button {
+  background-color: #28a745; /* Vert pour le bouton */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer; /* Indique que c'est cliquable */
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #218838; /* Vert plus foncé au survol */
+}
+
+/* Style pour l'affichage des produits sur produits.html */
+.produit-carte {
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  display: flex; /* Aligne l'image et le texte */
+  align-items: center; /* Centre verticalement */
+  gap: 20px; /* Espace entre l'image et le texte */
+}
+
+.produit-carte img {
+  border-radius: 4px;
+  object-fit: cover; /* Assure que l'image couvre l'espace sans distorsion */
+}
+
+.produit-carte h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #0056b3; /* Couleur de titre pour les produits */
+}
+
+.produit-carte p {
+  margin-bottom: 5px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ajouter un article - TeeShop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Ajouter un T-shirt</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="produits.html">Produits</a>
+    </nav>
+  </header>
+
+  <main>
+    <form id="formulaire-produit">
+      <input type="text" id="nom" placeholder="Nom du T-shirt" required><br>
+      <input type="text" id="description" placeholder="Description" required><br>
+      <input type="number" id="prix" placeholder="Prix (FCFA)" required><br>
+      <input type="text" id="image" placeholder="Lien de l'image" required><br>
+      <button type="submit">Ajouter</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById('formulaire-produit').addEventListener('submit', function(e) {
+      e.preventDefault(); // Empêche la page de se recharger
+      const nom = document.getElementById('nom').value;
+      const description = document.getElementById('description').value;
+      const prix = document.getElementById('prix').value;
+      const image = document.getElementById('image').value;
+
+      const produit = { nom, description, prix, image };
+      // Récupère les produits existants du stockage local, ou un tableau vide si aucun
+      let produits = JSON.parse(localStorage.getItem('produits')) || [];
+      produits.push(produit); // Ajoute le nouveau produit
+      localStorage.setItem('produits', JSON.stringify(produits)); // Enregistre la liste mise à jour
+
+      alert('Produit ajouté avec succès !'); // Message de confirmation
+      window.location.href = 'produits.html'; // Redirige vers la page des produits
+    });
+  </script>
+</body>
+</html>

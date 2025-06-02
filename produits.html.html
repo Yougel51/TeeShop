@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nos Produits - TeeShop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Nos T-shirts</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="ajouter-article.html">Ajouter un article</a>
+    </nav>
+  </header>
+
+  <main id="liste-produits">
+    </main>
+
+  <script>
+    // Script pour afficher les produits depuis localStorage
+    const produits = JSON.parse(localStorage.getItem('produits')) || []; // Récupère les produits
+    const listeProduitsDiv = document.getElementById('liste-produits'); // Sélectionne l'endroit où afficher
+
+    if (produits.length === 0) {
+      listeProduitsDiv.innerHTML = '<p>Aucun produit ajouté pour le moment.</p>'; // Message si aucun produit
+    } else {
+      produits.forEach(produit => { // Pour chaque produit
+        const produitDiv = document.createElement('div'); // Crée une div pour chaque produit
+        produitDiv.classList.add('produit-carte'); // Ajoute une classe pour le style
+        produitDiv.innerHTML = `
+          <img src="${produit.image}" alt="${produit.nom}" style="max-width: 200px; height: auto;">
+          <h2>${produit.nom}</h2>
+          <p>${produit.description}</p>
+          <p>Prix : ${produit.prix} FCFA</p>
+        `;
+        listeProduitsDiv.appendChild(produitDiv); // Ajoute la div du produit à la page
+      });
+    }
+  </script>
+</body>
+</html>
